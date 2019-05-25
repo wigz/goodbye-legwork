@@ -4,6 +4,30 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      titles: ['Hey guys, Big Gulps™ eh?', 'Welp, see ya later!'],
+      active_title: 0
+    }
+  },
+
+  // lifecycle
+  mounted: function() {
+    setInterval(this.seeYa.bind(this), 5000)
+  },
+
+  // methods
+  methods: {
+    seeYa: function() {
+      this.active_title = this.active_title === 0 ? 1 : 0
+      document.title = this.titles[this.active_title]
+    }
+  }
+}
+</script>
+
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -50,4 +74,3 @@ html {
   background-color: #35495e;
 }
 </style>
-

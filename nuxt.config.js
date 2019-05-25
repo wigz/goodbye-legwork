@@ -3,14 +3,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'goodbye-legwork',
+    title: 'Hey guys, Big Gulps™ eh?',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Hey, it was a good run!' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/uoh5mue.css'}
     ]
   },
   /*
@@ -36,4 +37,3 @@ module.exports = {
     }
   }
 }
-

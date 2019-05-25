@@ -21,11 +21,11 @@ export default {
 }
 
 .title {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: neuzeit-grotesk, sans-serif;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
+  font-weight: bold;
+  font-size: 64px;
+  color: #000;
   letter-spacing: 1px;
 }
 </style>
