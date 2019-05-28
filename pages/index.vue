@@ -1,31 +1,51 @@
 <template>
-  <section class="container">
-    <h1 class="title">
-      Goodbye Legwork
-    </h1>
-  </section>
+  <div id="index">
+    <div id="sequencer-wrap">
+      <Sequencer v-if="loaded"/>
+    </div>
+    <div id="loader-wrap">
+      <loader/>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import Loader from '~/components/loader.vue'
+import Sequencer from '~/components/sequencer.vue'
+
 export default {
+  // computed
+  computed: {
+    loaded() {
+      return this.$store.state.ready
+    }
+  },
+
+  // components
+  components: {
+    Loader,
+    Sequencer
+  },
+
+  // lifecycle
+  mounted: function() {
+  }
 }
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+#index {
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
 
-.title {
-  font-family: neuzeit-grotesk, sans-serif;
-  display: block;
-  font-weight: bold;
-  font-size: 64px;
-  color: #000;
-  letter-spacing: 1px;
+#index #sequencer-wrap {
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 </style>
