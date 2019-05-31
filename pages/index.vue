@@ -1,18 +1,25 @@
 <template>
   <div id="index">
-    <div id="sequencer-wrap">
+    <div id="head-wrap">
       <Sequencer v-if="loaded"/>
     </div>
-    <div id="loader-wrap">
-      <loader/>
+    <div id="text-wrap">
+
+    </div>
+    <div id="card-wrap">
+      <Cards/>
+    </div>
+    <div id="load-wrap">
+      <Loader/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import Loader from '~/components/loader.vue'
 import Sequencer from '~/components/sequencer.vue'
+import Cards from '~/components/cards.vue'
+import Loader from '~/components/loader.vue'
 
 export default {
   // computed
@@ -24,12 +31,13 @@ export default {
 
   // components
   components: {
-    Loader,
-    Sequencer
+    Sequencer,
+    Cards,
+    Loader
   },
 
   // lifecycle
-  mounted: function() {
+  mounted() {
   }
 }
 </script>
@@ -41,11 +49,18 @@ export default {
   width: 100%;
 }
 
-#index #sequencer-wrap {
+#index #head-wrap,
+#index #text-wrap,
+#index #card-wrap,
+#index #load-wrap {
   height: 100%;
   left: 0px;
   position: absolute;
   top: 0px;
   width: 100%;
+}
+
+#index #load-wrap {
+  pointer-events: none;
 }
 </style>

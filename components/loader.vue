@@ -31,7 +31,7 @@ export default {
 
   // methods
   methods: {
-    cache: function(path) {
+    cache(path) {
       let img = document.createElement('img');
 
       img.src = path;
@@ -45,7 +45,7 @@ export default {
       }
     },
 
-    generateCanvas: function(img) {
+    generateCanvas(img) {
       let arr = img.src.split("/"),
           seq = arr[arr.length - 2],
           cnv = document.createElement('canvas'),
@@ -58,7 +58,7 @@ export default {
       this.addCanvasToStore(seq, cnv)
     },
 
-    addCanvasToStore: function(seq, cnv) {
+    addCanvasToStore(seq, cnv) {
       this.$store.commit(`${seq}/add`, cnv)
 
       this.loaded += 1;
@@ -71,4 +71,8 @@ export default {
 </script>
 
 <style>
+#loader {
+  height: 100%;
+  width: 100%;
+}
 </style>

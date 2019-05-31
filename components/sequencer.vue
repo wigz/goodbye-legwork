@@ -16,7 +16,7 @@ export default {
   },
 
   // lifecycle
-  mounted: function() {
+  mounted() {
     let cnv = document.getElementById('sequencer').getElementsByTagName('canvas')[0],
         ctx = cnv.getContext('2d');
 

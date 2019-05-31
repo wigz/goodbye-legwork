@@ -14,13 +14,13 @@ export default {
   },
 
   // lifecycle
-  mounted: function() {
+  mounted() {
     setInterval(this.seeYa.bind(this), 5000)
   },
 
   // methods
   methods: {
-    seeYa: function() {
+    seeYa() {
       this.active_title = this.active_title === 0 ? 1 : 0
       document.title = this.titles[this.active_title]
     }
