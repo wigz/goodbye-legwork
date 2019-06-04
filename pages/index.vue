@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     <div id="head-wrap">
-      <Sequencer v-if="loaded"/>
+      <Sequencer v-if="loaded" :fps="1000 / 18"/>
     </div>
     <div id="text-wrap">
 

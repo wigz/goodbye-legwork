@@ -22,6 +22,7 @@ export default {
   // data
   data() {
     return {
+      cornered: false,
       unlocked: false
     }
   },
@@ -127,6 +128,12 @@ export default {
       if(this._seen[0] && this._seen[1] && this._seen[2]) this.unlocked = true
     },
 
+    turnThePage(index) {
+      this.$store.commit('sequence', 'skull')
+      this.$store.commit('from', 1)
+      this.$store.commit('to', 28)
+    },
+
     onCornerDown(e) {
       for(let corner of this._corners) {
         corner.classList.remove('dropped')
@@ -140,8 +147,16 @@ export default {
       t.classList.add('down')
       this._active_corner = t
 
-      window.removeEventListener('resize', this.onResize)
-      this.disperseCorners()
+      if(this.cornered === false) {
+        this.cornered = true;
+        window.removeEventListener('resize', this.onResize)
+        this.disperseCorners()
+      } else {
+        this.$store.commit('sequence', 'skull')
+        this.$store.commit('from', 28)
+        this.$store.commit('to', 45)
+        this.disperseCorners()
+      }
 
       document.body.addEventListener('mousemove', this.onCornerMove, true)
       document.body.addEventListener('mouseup', this.onCornerUp, true)
@@ -169,8 +184,7 @@ export default {
       this._active_corner = null
 
       // message
-      // TODO: store
-      //this.turnThePage(index)
+      this.turnThePage(index)
 
       // unlock?
       this.turnTheKey(index)

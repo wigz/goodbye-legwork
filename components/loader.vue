@@ -11,36 +11,43 @@ export default {
     return {
       loaded: 0,
       manifest: {
-        skull: [
-          '/sequences/skull/01.jpg'
-        ],
-        split: [
-
-        ],
-        cover: [
-
-        ]
+        skull: {
+          path: '/sequences/skull/',
+          frames: 45
+        },
+        split: {
+          path: '/sequences/skull/',
+          frames: 0
+        },
+        cover: {
+          path: '/sequences/skull/',
+          frames: 0
+        }
       }
     }
   },
 
   // lifecycle
   mounted: function() {
-    this.cache(this.manifest.skull[0])
+    for(let i = 1; i <= this.manifest.skull.frames; i++) {
+      this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}.jpg`, i)
+    }
   },
 
   // methods
   methods: {
-    cache(path) {
-      let img = document.createElement('img');
+    cache(path, index) {
+      let img = document.createElement('img'),
+          arr = path.split("/"),
+          seq = arr[arr.length - 2]
 
       img.src = path;
 
       if(img.complete) {
-        this.generateCanvas(img)
+        this.addCanvasToStore(seq, this.generateCanvas(img), index)
       } else {
         img.addEventListener('load', (e) => {
-          this.generateCanvas(e.currentTarget)
+          this.addCanvasToStore(seq, this.generateCanvas(e.currentTarget), index)
         })
       }
     },
@@ -55,14 +62,14 @@ export default {
       cnv.height = 1600
       ctx.drawImage(img, 0, 0, 1600, 1600)
 
-      this.addCanvasToStore(seq, cnv)
+      return cnv
     },
 
-    addCanvasToStore(seq, cnv) {
-      this.$store.commit(`${seq}/add`, cnv)
+    addCanvasToStore(seq, cnv, index) {
+      this.$store.commit(`${seq}/add`, {index, cnv})
 
       this.loaded += 1;
-      if(this.loaded === this.manifest.skull.length + this.manifest.split.length + this.manifest.cover.length) {
+      if(this.loaded === this.manifest.skull.frames + this.manifest.split.frames + this.manifest.cover.frames) {
         this.$store.commit('loaded')
       }
     }

@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add(state, cnv) {
-    state.frames.push(cnv)
+  add(state, {index, cnv}) {
+    state.frames[index] = cnv
   }
 }
