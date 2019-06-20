@@ -34,7 +34,6 @@ export default {
   // watch
   watch: {
     to(val) {
-      // TODO: queue?
       if(val !== -1) this.play()
     }
   },
@@ -79,6 +78,7 @@ export default {
         if(this._frame === this.to) {
           cancelAnimationFrame(this._raf)
           if(this.to === (this[this.sequence].length - 1)) this.clear()
+          else this.$store.commit('message_shown', true)
         } else {
           this._frame += 1
         }

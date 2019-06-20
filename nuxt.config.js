@@ -11,7 +11,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://use.typekit.net/uoh5mue.css'}
+      { rel: 'stylesheet', href: 'https://use.typekit.net/ydt7mrm.css'}
     ]
   },
   /*

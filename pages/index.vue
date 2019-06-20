@@ -4,7 +4,7 @@
       <Sequencer v-if="loaded" :fps="1000 / 18"/>
     </div>
     <div id="text-wrap">
-
+      <Wordz/>
     </div>
     <div id="card-wrap">
       <Cards/>
@@ -18,6 +18,7 @@
 <script>
 import { mapMutations } from 'vuex'
 import Sequencer from '~/components/sequencer.vue'
+import Wordz from '~/components/wordz.vue'
 import Cards from '~/components/cards.vue'
 import Loader from '~/components/loader.vue'
 
@@ -32,6 +33,7 @@ export default {
   // components
   components: {
     Sequencer,
+    Wordz,
     Cards,
     Loader
   },

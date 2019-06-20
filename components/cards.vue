@@ -1,16 +1,16 @@
 <template>
   <div id="cards" :class="{unlocked: unlocked}">
     <div class="corner" id="card-01" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/01.png" width="188" height="280"/>
+      <img src="/cards/01.png"/>
     </div>
     <div class="corner" id="card-02" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/02.png" width="188" height="280"/>
+      <img src="/cards/02.png"/>
     </div>
     <div class="corner" id="card-03" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/03.png" width="188" height="280"/>
+      <img src="/cards/03.png"/>
     </div>
     <div class="corner" id="card-04" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/04.png" width="188" height="280"/>
+      <img src="/cards/04.png"/>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
 
     calcTranslates() {
       let base_x = (Math.round(window.innerWidth / 2) - 114),
-          base_y = (Math.round(window.innerHeight / 2) - 160)
+          base_y = (Math.round(window.innerHeight / 2) - 161)
 
       return [
         {
@@ -132,6 +132,7 @@ export default {
       this.$store.commit('sequence', 'skull')
       this.$store.commit('from', 1)
       this.$store.commit('to', 28)
+      this.$store.commit('message', index)
     },
 
     onCornerDown(e) {
@@ -155,6 +156,7 @@ export default {
         this.$store.commit('sequence', 'skull')
         this.$store.commit('from', 28)
         this.$store.commit('to', 45)
+        this.$store.commit('message_shown', false)
         this.disperseCorners()
       }
 
@@ -220,11 +222,16 @@ export default {
 #cards .corner {
   border-radius: 7px;
   cursor: pointer;
-  height: 320px;
+  height: 322px;
   padding: 20px;
   position: absolute;
   transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000), opacity 333ms linear;
   width: 228px;
+}
+
+#cards .corner img {
+  height: 100%;
+  width: 100%;
 }
 
 #cards .corner.down {

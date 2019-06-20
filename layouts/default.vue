@@ -29,7 +29,14 @@ export default {
 </script>
 
 <style>
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --grandpas-basement: #f8f7f3;
+}
+
 html, body {
+  background-color: var(--white);
   height: 100%;
   overflow: hidden;
   width: 100%;
