@@ -79,7 +79,8 @@ export default {
   font-weight: bold;
   line-height: 1.2em;
   transform: translate3d(0%, 100%, 0);
-  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000)
+  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000);
+  white-space: nowrap;
 }
 
 #wordz.shown #inner-wordz .line span {

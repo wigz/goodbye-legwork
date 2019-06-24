@@ -17,11 +17,20 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#000000' },
+  /*
+  ** Plugins
+  */
+  plugins: [
+    { src: `~plugins/vimeo-player`, ssr: false }
+  ],
   /*
   ** Build configuration
   */
   build: {
+    vendor: [
+      'vue-vimeo-player'
+    ],
     /*
     ** Run ESLint on save
     */
