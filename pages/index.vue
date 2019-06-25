@@ -123,7 +123,35 @@ export default {
 }
 
 #index #in-memory #hero {
+  position: relative;
   width: 100%;
+}
+
+#index #in-memory #hero:before {
+  background-image: url(/didnt.png);
+  background-position: 0px 0px;
+  background-size: 85px 798px;
+  bottom: 100%;
+  content: "";
+  display: block;
+  height: 57px;
+  left: 102px;
+  position: absolute;
+  width: 85px;
+}
+
+#index.message-3 #in-memory #hero:before {
+  animation: didnt 1s 6.66s steps(13) forwards;
+}
+
+@keyframes didnt {
+  from {
+    background-position: 0px 0px;
+  }
+
+  to {
+    background-position: 0px -741px;
+  }
 }
 
 #index #in-memory #hero #logo {
