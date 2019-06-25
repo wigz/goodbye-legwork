@@ -20,11 +20,11 @@ export default {
     skull() {
       return this.$store.state.skull.frames
     },
+    cover() {
+      return this.$store.state.cover.frames
+    },
     sequence() {
       return this.$store.state.sequence
-    },
-    from() {
-      return this.$store.state.from
     },
     to() {
       return this.$store.state.to
@@ -34,7 +34,7 @@ export default {
   // watch
   watch: {
     to(val) {
-      if(val !== -1) this.play()
+      if(val !== '') this.play()
     }
   },
 
@@ -45,6 +45,16 @@ export default {
     this._now = 0
     this._then = 0
     this._frame = 0
+    this._positions = {
+      'skull': {
+        'rest': 28,
+        'end': 45
+      },
+      'cover': {
+        'rest': 28,
+        'end': 50
+      }
+    }
   },
 
   mounted() {
@@ -55,7 +65,8 @@ export default {
   // methods
   methods: {
     play() {
-      this._frame = this.from
+      this._frame = this.to === 'rest' ? 1 : this._positions[this.sequence]['rest']
+      this._to_frame = this._positions[this.sequence][this.to]
       this._then = Date.now()
       this._raf = window.requestAnimationFrame(this.render)
     },
@@ -75,9 +86,9 @@ export default {
 
         this._ctx.drawImage(this[this.sequence][this._frame], 200, 200, 1600, 1600)
 
-        if(this._frame === this.to) {
+        if(this._frame === this._to_frame) {
           cancelAnimationFrame(this._raf)
-          if(this.to === (this[this.sequence].length - 1)) this.clear()
+          if(this._to_frame === (this[this.sequence].length - 1)) this.clear()
           else this.$store.commit('message_shown', true)
         } else {
           this._frame += 1

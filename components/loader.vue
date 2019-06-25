@@ -20,8 +20,8 @@ export default {
           frames: 0
         },
         cover: {
-          path: '/sequences/skull/',
-          frames: 0
+          path: '/sequences/cover/',
+          frames: 50
         }
       }
     }
@@ -31,6 +31,10 @@ export default {
   mounted: function() {
     for(let i = 1; i <= this.manifest.skull.frames; i++) {
       this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}.jpg`, i)
+    }
+
+    for(let i = 1; i <= this.manifest.cover.frames; i++) {
+      this.cache(`${this.manifest.cover.path}${('0' + i).substr(-2)}.jpg`, i)
     }
   },
 

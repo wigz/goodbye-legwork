@@ -1,8 +1,7 @@
 export const state = () => ({
   ready: false,
   sequence: '',
-  from: 0,
-  to: -1,
+  to: '',
   message: -1,
   message_shown: false
 })

@@ -2,7 +2,7 @@
   <div id="index" :class="message">
     <div id="the-four-corners">
       <div id="head-wrap">
-        <Sequencer v-if="loaded" :fps="1000 / 18"/>
+        <Sequencer v-if="loaded" :fps="1000 / 15"/>
       </div>
       <div id="text-wrap">
         <Wordz/>
@@ -141,7 +141,7 @@ export default {
 }
 
 #index.message-3 #in-memory #hero:before {
-  animation: didnt 1s 6.66s steps(13) forwards;
+  animation: didnt 1s 5s steps(13) forwards;
 }
 
 @keyframes didnt {

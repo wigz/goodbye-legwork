@@ -35,11 +35,17 @@ export default {
       initial_y: 0
     }
     this._active_corner = null
+    this._seq = [
+      'skull',
+      'skull',
+      'cover'
+    ]
     this._seen = [
       false,
       false,
       false
     ]
+    this._last_index = 0
 
     window.addEventListener('resize', this.onResize)
     this.onResize()
@@ -129,9 +135,14 @@ export default {
     },
 
     turnThePage(index) {
-      this.$store.commit('sequence', 'skull')
-      this.$store.commit('from', 1)
-      this.$store.commit('to', 28)
+      if(index === 3) {
+        this.$store.commit('sequence', '')
+        this.$store.commit('to', '')
+      } else {
+        this.$store.commit('sequence', this._seq[index])
+        this.$store.commit('to', 'rest')
+      }
+
       this.$store.commit('message', index)
     },
 
@@ -153,9 +164,8 @@ export default {
         window.removeEventListener('resize', this.onResize)
         this.disperseCorners()
       } else {
-        this.$store.commit('sequence', 'skull')
-        this.$store.commit('from', 28)
-        this.$store.commit('to', 45)
+        this.$store.commit('sequence', this._seq[this._last_index])
+        this.$store.commit('to', 'end')
         this.$store.commit('message_shown', false)
         this.disperseCorners()
       }
@@ -177,6 +187,7 @@ export default {
 
     onCornerUp(e) {
       let index = this.getIndex(this._active_corner)
+      this._last_index = index;
 
       this._active_corner.classList.remove('down')
       this._active_corner.classList.add('dropped')
