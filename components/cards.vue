@@ -37,7 +37,7 @@ export default {
     this._active_corner = null
     this._seq = [
       'skull',
-      'skull',
+      'split',
       'cover'
     ]
     this._seen = [
@@ -275,5 +275,9 @@ export default {
   opacity: 0;
   right: 0px;
   visibility: hidden;
+}
+
+#index.message-3 #cards .corner {
+  transition: none !important;
 }
 </style>

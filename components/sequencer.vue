@@ -20,6 +20,9 @@ export default {
     skull() {
       return this.$store.state.skull.frames
     },
+    split() {
+      return this.$store.state.split.frames
+    },
     cover() {
       return this.$store.state.cover.frames
     },
@@ -49,6 +52,10 @@ export default {
       'skull': {
         'rest': 28,
         'end': 45
+      },
+      'split': {
+        'rest': 32,
+        'end': 54
       },
       'cover': {
         'rest': 28,

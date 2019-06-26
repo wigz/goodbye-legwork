@@ -16,8 +16,8 @@ export default {
           frames: 45
         },
         split: {
-          path: '/sequences/skull/',
-          frames: 0
+          path: '/sequences/split/',
+          frames: 54
         },
         cover: {
           path: '/sequences/cover/',
@@ -31,6 +31,10 @@ export default {
   mounted: function() {
     for(let i = 1; i <= this.manifest.skull.frames; i++) {
       this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}.jpg`, i)
+    }
+
+    for(let i = 1; i <= this.manifest.split.frames; i++) {
+      this.cache(`${this.manifest.split.path}${('0' + i).substr(-2)}.jpg`, i)
     }
 
     for(let i = 1; i <= this.manifest.cover.frames; i++) {
