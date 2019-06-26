@@ -161,7 +161,7 @@ export default {
   content: "";
   display: block;
   height: 57px;
-  left: 102px;
+  left: 103px;
   padding: 0 0 -8.333% 8.333%;
   position: absolute;
   width: 85px;
