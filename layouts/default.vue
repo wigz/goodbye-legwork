@@ -33,6 +33,7 @@ export default {
   --black: #000000;
   --white: #ffffff;
   --grandpas-basement: #f8f7f3;
+  --frumpy-noodle: #292929;
 }
 
 html, body {

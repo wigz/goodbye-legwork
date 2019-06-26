@@ -26,7 +26,7 @@
           <path d="M184,42.3v11.5c0,0.3,0.3,0.6,0.6,0.6h19.8c0.3,0,0.6,0.3,0.6,0.6v12.6c0,0.2-0.1,0.4-0.3,0.5c-5.7,3.3-11.4,5.1-20,5.1c-5.5,0-10.8-1.8-15.3-5c-1.3-1-2.6-2.2-3.8-3.4c-5.2-5.3-8.4-13-8.4-21.8c0-17.7,12.3-29.6,28.3-29.8c7.7,0,14.8,2.9,19.4,7.8c0.1,0.1,0.2,0.3,0.2,0.4v7c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V16c0-0.6-0.2-1.1-0.6-1.6c-6.6-7.7-15.6-12.6-26.6-14c-0.3,0-0.6-0.1-0.9-0.1c-0.1,0-0.2,0-0.3,0c-1.4-0.2-2.9-0.3-4.4-0.3c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.2,0c-25.4,0-43.2,18.7-43.2,43c0,0,0,0.1,0,0.1c0,0,0,0.1,0,0.1c0,26.6,19.5,42.7,40.1,42.7c8.9,0,16.1-2.8,21.8-7c0.4-0.3,0.9,0,0.9,0.5v5.4c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V42.3c0-0.3-0.3-0.6-0.6-0.6h-33.7C184.3,41.7,184,41.9,184,42.3z"/>
         </svg>
         <div id="hero-content">
-          <p>In the end, it was the work and the people that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
+          <p>These were the ideals that we strived to uphold at Legwork Studio. But, in the end, it was the work and the people that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
           <div id="hero-img-wrap">
             <img src="legstudio.png"/>
           </div>
@@ -37,9 +37,35 @@
           <vimeo-player data-vimeo-responsive="1" ref="player" video-id="280759140"/>
         </no-ssr>
       </div>
-      <div id="hall">
-        <div id="at-the-end"></div>
-        <div id="over-the-years"></div>
+      <div id="at-the-end">
+        <span class="big-wordz">At The End</span>
+        <div class="human-being">
+          <span class="name">Joey Bullock</span>
+          <span class="occupasche">Partner / Operations</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Aaron Ray</span>
+          <span class="occupasche">Partner / Animation</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Matt Wiggins</span>
+          <span class="occupasche">Partner / Interactive</span>
+        </div>
+      </div>
+      <div id="over-the-years">
+        <span class="big-wordz">Throughout All Time</span>
+        <div class="human-being">
+          <span class="name">Andy MacIntosh</span>
+          <span class="occupasche">Partner / Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Matt FaJohn</span>
+          <span class="occupasche">Partner / Business Development</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Sean Klassen</span>
+          <span class="occupasche">Partner / Designer</span>
+        </div>
       </div>
     </div>
   </div>
@@ -118,11 +144,11 @@ export default {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 8.333%;
   width: 100%;
 }
 
 #index #in-memory #hero {
+  padding: 8.333%;
   position: relative;
   width: 100%;
 }
@@ -136,6 +162,7 @@ export default {
   display: block;
   height: 57px;
   left: 102px;
+  padding: 0 0 -8.333% 8.333%;
   position: absolute;
   width: 85px;
 }
@@ -184,22 +211,61 @@ export default {
 }
 
 #index #in-memory #reel {
-  padding: 20% 10%;
+  padding: 8.333% 16.666%;
   width: 100%;
 }
 
-#index #in-memory #hall {
-  height: 200%;
+#index #in-memory #at-the-end,
+#index #in-memory #over-the-years {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8.333%;
   width: 100%;
 }
 
-#index #in-memory #hall #at-the-end  {
-  height: 50%;
+#index #in-memory #over-the-years {
+  background-color: var(--frumpy-noodle);
+}
+
+#index #in-memory #at-the-end .big-wordz,
+#index #in-memory #over-the-years .big-wordz {
+  display: block;
+  font-size: 72px;
+  font-weight: bold;
+  margin-bottom: 8.333%;
   width: 100%;
 }
 
-#index #in-memory #hall #over-the-years  {
-  height: 50%;
-  width: 100%;
+#index #in-memory #over-the-years .big-wordz {
+  color: var(--white);
+}
+
+#index #in-memory #at-the-end .human-being,
+#index #in-memory #over-the-years .human-being {
+  width: 33%;
+}
+
+#index #in-memory #at-the-end .human-being .name,
+#index #in-memory #over-the-years .human-being .name {
+  display: block;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+#index #in-memory #over-the-years .human-being .name {
+  color: var(--white);
+}
+
+#index #in-memory #at-the-end .human-being .occupasche,
+#index #in-memory #over-the-years .human-being .occupasche {
+  display: block;
+  font-size: 21px;
+  opacity: 0.666;
+}
+
+#index #in-memory #over-the-years .human-being .occupasche {
+  color: var(--white);
+  opacity: 0.333;
 }
 </style>
