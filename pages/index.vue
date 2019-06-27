@@ -26,7 +26,7 @@
           <path d="M184,42.3v11.5c0,0.3,0.3,0.6,0.6,0.6h19.8c0.3,0,0.6,0.3,0.6,0.6v12.6c0,0.2-0.1,0.4-0.3,0.5c-5.7,3.3-11.4,5.1-20,5.1c-5.5,0-10.8-1.8-15.3-5c-1.3-1-2.6-2.2-3.8-3.4c-5.2-5.3-8.4-13-8.4-21.8c0-17.7,12.3-29.6,28.3-29.8c7.7,0,14.8,2.9,19.4,7.8c0.1,0.1,0.2,0.3,0.2,0.4v7c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V16c0-0.6-0.2-1.1-0.6-1.6c-6.6-7.7-15.6-12.6-26.6-14c-0.3,0-0.6-0.1-0.9-0.1c-0.1,0-0.2,0-0.3,0c-1.4-0.2-2.9-0.3-4.4-0.3c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.2,0c-25.4,0-43.2,18.7-43.2,43c0,0,0,0.1,0,0.1c0,0,0,0.1,0,0.1c0,26.6,19.5,42.7,40.1,42.7c8.9,0,16.1-2.8,21.8-7c0.4-0.3,0.9,0,0.9,0.5v5.4c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V42.3c0-0.3-0.3-0.6-0.6-0.6h-33.7C184.3,41.7,184,41.9,184,42.3z"/>
         </svg>
         <div id="hero-content">
-          <p>These were the ideals that we strived to uphold at Legwork Studio. But, in the end, it was the work and the people that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
+          <p>These were the ideals that we strived to uphold at Legwork Studio. But, in the end, it was the talented people and the unmatched work they did that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
           <div id="hero-img-wrap">
             <img src="legstudio.png"/>
           </div>
@@ -37,34 +37,178 @@
           <vimeo-player data-vimeo-responsive="1" ref="player" video-id="280759140"/>
         </no-ssr>
       </div>
-      <div id="at-the-end">
-        <span class="big-wordz">At The End</span>
+      <div id="last-starfighters">
+        <span class="big-wordz">The Last Starfighters</span>
         <div class="human-being">
           <span class="name">Joey Bullock</span>
           <span class="occupasche">Partner / Operations</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Chris Grey</span>
+          <span class="occupasche">Executive Producer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Bret Harris</span>
+          <span class="occupasche">Business Development</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Stuart Inamura</span>
+          <span class="occupasche">Designer / Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Jeremy Jackson</span>
+          <span class="occupasche">Technical Director</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Hannah Purmort</span>
+          <span class="occupasche">Senior Art Director</span>
         </div>
         <div class="human-being">
           <span class="name">Aaron Ray</span>
           <span class="occupasche">Partner / Animation</span>
         </div>
         <div class="human-being">
+          <span class="name">Richie Robbins</span>
+          <span class="occupasche">Senior Producer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Lisa Rooney</span>
+          <span class="occupasche">Producer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Jack Rugile</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Adam Scarano</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Mike Scarano</span>
+          <span class="occupasche">Associate Creative Director</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Harry Schaefer</span>
+          <span class="occupasche">Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Mary Vertulfo</span>
+          <span class="occupasche">Designer / Animator</span>
+        </div>
+        <div class="human-being">
           <span class="name">Matt Wiggins</span>
           <span class="occupasche">Partner / Interactive</span>
         </div>
       </div>
-      <div id="over-the-years">
-        <span class="big-wordz">Throughout All Time</span>
+      <div id="lost-starfighters">
+        <span class="big-wordz">The Lost Starfighters</span>
         <div class="human-being">
-          <span class="name">Andy MacIntosh</span>
-          <span class="occupasche">Partner / Developer</span>
+          <span class="name">Dean Boyer </span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Ben Chwirka</span>
+          <span class="occupasche">Designer / Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Zack Citro</span>
+          <span class="occupasche">Senior Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Drew Dahlman</span>
+          <span class="occupasche">Technical Director</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Katrin Davis</span>
+          <span class="occupasche">Design Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Megan Demarco</span>
+          <span class="occupasche">Design Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Keith Driessen</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Lucas Drummond</span>
+          <span class="occupasche">Developer Intern</span>
         </div>
         <div class="human-being">
           <span class="name">Matt FaJohn</span>
           <span class="occupasche">Partner / Business Development</span>
         </div>
         <div class="human-being">
+          <span class="name">Matt Flesher</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Dan Hannigan</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Kyle Hegge</span>
+          <span class="occupasche">Animation Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Matt Johnston</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Sarah Jones</span>
+          <span class="occupasche">Designer / Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Kristin Kidd</span>
+          <span class="occupasche">Producer</span>
+        </div>
+        <div class="human-being">
           <span class="name">Sean Klassen</span>
-          <span class="occupasche">Partner / Designer</span>
+          <span class="occupasche">Partner / Creative Director</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Mike Lanning</span>
+          <span class="occupasche">Animation Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Derik Linch</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Oliver McCabe</span>
+          <span class="occupasche">Design Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Andy McIntosh</span>
+          <span class="occupasche">Partner / Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Josh O’Brien</span>
+          <span class="occupasche">Animation Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Sean Ryan</span>
+          <span class="occupasche">Interactive Designer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Jurg Schappi</span>
+          <span class="occupasche">UX Intern</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Jos Smith</span>
+          <span class="occupasche">Developer</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Dave Soderberg</span>
+          <span class="occupasche">Creative Director</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Nick Tolve</span>
+          <span class="occupasche">Animator</span>
+        </div>
+        <div class="human-being">
+          <span class="name">Daniel Wilber</span>
+          <span class="occupasche">Developer</span>
         </div>
       </div>
     </div>
@@ -215,20 +359,20 @@ export default {
   width: 100%;
 }
 
-#index #in-memory #at-the-end,
-#index #in-memory #over-the-years {
+#index #in-memory #last-starfighters,
+#index #in-memory #lost-starfighters {
   display: flex;
   flex-wrap: wrap;
-  padding: 8.333%;
+  padding: 8.333% 8.333% 4.166%;
   width: 100%;
 }
 
-#index #in-memory #over-the-years {
+#index #in-memory #lost-starfighters {
   background-color: var(--frumpy-noodle);
 }
 
-#index #in-memory #at-the-end .big-wordz,
-#index #in-memory #over-the-years .big-wordz {
+#index #in-memory #last-starfighters .big-wordz,
+#index #in-memory #lost-starfighters .big-wordz {
   display: block;
   font-size: 72px;
   font-weight: bold;
@@ -236,35 +380,36 @@ export default {
   width: 100%;
 }
 
-#index #in-memory #over-the-years .big-wordz {
+#index #in-memory #lost-starfighters .big-wordz {
   color: var(--white);
 }
 
-#index #in-memory #at-the-end .human-being,
-#index #in-memory #over-the-years .human-being {
+#index #in-memory #last-starfighters .human-being,
+#index #in-memory #lost-starfighters .human-being {
+  margin-bottom: 5%;
   width: 33%;
 }
 
-#index #in-memory #at-the-end .human-being .name,
-#index #in-memory #over-the-years .human-being .name {
+#index #in-memory #last-starfighters .human-being .name,
+#index #in-memory #lost-starfighters .human-being .name {
   display: block;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 12px;
 }
 
-#index #in-memory #over-the-years .human-being .name {
+#index #in-memory #lost-starfighters .human-being .name {
   color: var(--white);
 }
 
-#index #in-memory #at-the-end .human-being .occupasche,
-#index #in-memory #over-the-years .human-being .occupasche {
+#index #in-memory #last-starfighters .human-being .occupasche,
+#index #in-memory #lost-starfighters .human-being .occupasche {
   display: block;
   font-size: 21px;
   opacity: 0.666;
 }
 
-#index #in-memory #over-the-years .human-being .occupasche {
+#index #in-memory #lost-starfighters .human-being .occupasche {
   color: var(--white);
   opacity: 0.333;
 }

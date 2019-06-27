@@ -2,19 +2,19 @@
   <div id="wordz" :class="{shown: shown}">
     <div id="inner-wordz">
       <div class="line" id="line-01">
-        <span>With a terrible cry the Balrog fell forward, and its shadow plunged</span>
+        <span>{{ lines[0] }}</span>
       </div>
-      <div class="line" id="line-01">
-        <span>down and vanished. But even as it fell it swung its whip, and the</span>
+      <div class="line" id="line-02">
+        <span>{{ lines[1] }}</span>
       </div>
-      <div class="line" id="line-01">
-        <span>thongs lashed and curled about the wizard's knees, dragging him</span>
+      <div class="line" id="line-03">
+        <span>{{ lines[2] }}</span>
       </div>
-      <div class="line" id="line-01">
-        <span>to the brink. He staggered and fell, grasped vainly at the stone,</span>
+      <div class="line" id="line-04">
+        <span>{{ lines[3] }}</span>
       </div>
-      <div class="line" id="line-01">
-        <span>and slid into the abyss. 'Fly, you fools!' he cried, and was gone.</span>
+      <div class="line" id="line-05">
+        <span>{{ lines[4] }}</span>
       </div>
     </div>
   </div>
@@ -24,6 +24,35 @@
 import { mapMutations } from 'vuex'
 
 export default {
+  // data
+  data() {
+    return {
+      wordz: [
+        [
+          "We saw creativity as our guiding light. When times were the best,",
+          "we didn’t haggle over budgets, worry about finding clients or struggle",
+          "to hire the best people. We led with creativity and the rest followed.",
+          "We passed on work that didn’t give us this opportunity. Maybe it",
+          "contributed to our downfall, but it was totally worth it.",
+        ],
+        [
+          "We didn’t recycle ideas. We tried to give each project a unique",
+          "perspective and approach. We loved when people told us that the",
+          "work we did felt hand crafted. And this is where we thrived, on a",
+          "constant stream of new, creative challenges. We were a team driven",
+          "by learning new things and telling the status quo to get fucked."
+        ],
+        [
+          "We always pushed concepts, even if it meant down to the wire",
+          "deliveries. We were unabashedly ‘us’ and tried to inject humor into",
+          "everything. For more than a decade, we showed up everyday with",
+          "the right attitude, put our heads down and work hard. \"A little candle",
+          "burns out just like a flaming torch, we chose our own way to burn.\""
+        ]
+      ]
+    }
+  },
+
   // computed
   computed: {
     shown() {
@@ -31,6 +60,9 @@ export default {
     },
     message() {
       return this.$store.state.message
+    },
+    lines() {
+      return this.message === -1 || this.message === 3 ? ['', '', '', '', ''] : this.wordz[this.message]
     }
   }
 }
