@@ -40,13 +40,13 @@ export default {
           "perspective and approach. We loved when people told us that the",
           "work we did felt hand crafted. And this is where we thrived, on a",
           "constant stream of new, creative challenges. We were a team driven",
-          "by learning new things and telling the status quo to get fucked."
+          "by learning new things and saying 'get fucked!' to the status quo."
         ],
         [
           "We always pushed concepts, even if it meant down to the wire",
           "deliveries. We were unabashedly ‘us’ and tried to inject humor into",
-          "everything. For more than a decade, we showed up everyday with",
-          "the right attitude, put our heads down and work hard. \"A little candle",
+          "everything. For more than a decade, we showed up everyday with the",
+          "right attitude, put our heads down and got to work. \"A little candle",
           "burns out just like a flaming torch, we chose our own way to burn.\""
         ]
       ]

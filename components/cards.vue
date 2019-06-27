@@ -48,7 +48,6 @@ export default {
     this._last_index = 0
 
     window.addEventListener('resize', this.onResize)
-    this.onResize()
   },
 
   // methods

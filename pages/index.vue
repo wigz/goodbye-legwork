@@ -10,7 +10,7 @@
       <div id="card-wrap">
         <Cards/>
       </div>
-      <div id="load-wrap">
+      <div id="load-wrap" :class="{loaded: loaded}">
         <Loader/>
       </div>
     </div>
@@ -279,7 +279,12 @@ export default {
 }
 
 #index #the-four-corners #load-wrap {
-  pointer-events: none;
+  transition: opacity 666ms linear, visibility 0ms linear 666ms;
+}
+
+#index #the-four-corners #load-wrap.loaded {
+  opacity: 0;
+  visibility: hidden;
 }
 
 #index #in-memory {
@@ -316,10 +321,6 @@ export default {
 }
 
 @keyframes didnt {
-  from {
-    background-position: 0px 0px;
-  }
-
   to {
     background-position: 0px -741px;
   }
