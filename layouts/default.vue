@@ -15,6 +15,7 @@ export default {
 
   // lifecycle
   mounted() {
+    console.log('%c 🦄 Hello curious voyager! https://github.com/wigz/goodbye-legwork', 'color: #F0F')
     setInterval(this.seeYa.bind(this), 5000)
   },
 

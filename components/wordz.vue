@@ -89,7 +89,7 @@ export default {
 }
 
 #wordz.shown:before {
-  opacity: 0.85;
+  opacity: 0.92;
 }
 
 #wordz #inner-wordz {
@@ -106,6 +106,7 @@ export default {
 }
 
 #wordz #inner-wordz .line span {
+  color: var(--frumpy-noodle);
   display: block;
   font-size: 32px;
   font-weight: bold;
