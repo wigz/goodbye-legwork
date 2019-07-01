@@ -137,7 +137,7 @@
         </div>
         <div class="human-being">
           <span class="name">Matt FaJohn</span>
-          <span class="occupasche">Partner / Business Development</span>
+          <span class="occupasche">Partner / New Business</span>
         </div>
         <div class="human-being">
           <span class="name">Matt Flesher</span>
@@ -324,7 +324,7 @@ export default {
 }
 
 #index #in-memory #hero {
-  padding: 8.333%;
+  padding: 15% 10% 10%;
   position: relative;
   width: 100%;
 }
@@ -332,15 +332,15 @@ export default {
 #index #in-memory #hero:before {
   background-image: url(/didnt.png);
   background-position: 0px 0px;
-  background-size: 85px 798px;
+  background-size: 43px 406px;
   bottom: 100%;
   content: "";
   display: block;
-  height: 57px;
-  left: 103px;
-  margin: 0 0 -8.333% 8.333%;
+  height: 29px;
+  left: 52px;
+  margin: 0 0 -15% 10%;
   position: absolute;
-  width: 85px;
+  width: 43px;
 }
 
 #index.message-3 #in-memory #hero:before {
@@ -349,14 +349,14 @@ export default {
 
 @keyframes didnt {
   to {
-    background-position: 0px -741px;
+    background-position: 0px -377px;
   }
 }
 
 #index #in-memory #hero #logo {
-  height: 43px;
-  margin-bottom: 8.333%;
-  width: 300px;
+  height: 22px;
+  margin-bottom: 10%;
+  width: 150px;
 }
 
 #index #in-memory #hero #back-to-the-corners {
@@ -364,9 +364,9 @@ export default {
   font-size: 16px;
   font-weight: bold;
   line-height: 1em;
-  margin-top: 8.333%;
+  margin-top: 15%;
   position: absolute;
-  right: 8.333%;
+  right: 10%;
   top: 0px;
 }
 
@@ -380,31 +380,18 @@ export default {
   top: 3px;
 }
 
-#index #in-memory #hero #hero-content {
-  display: flex;
-  justify-content: space-between;
-}
-
 #index #in-memory #hero #hero-content p {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 16px;
   line-height: 1.6em;
   margin: 0;
-  width: 50%;
 }
 
 #index #in-memory #hero #hero-content #hero-img-wrap {
-  width: 40%;
-}
-
-#index #in-memory #hero #hero-content #hero-img-wrap img {
-  display: block;
-  height: auto;
-  width: 100%;
+  display: none;
 }
 
 #index #in-memory #reel {
-  padding: 8.333% 16.666%;
+  padding: 0 10%;
   width: 100%;
 }
 
@@ -412,7 +399,7 @@ export default {
 #index #in-memory #lost-starfighters {
   display: flex;
   flex-wrap: wrap;
-  padding: 8.333% 8.333% 4.166%;
+  padding: 10% 10% 5%;
   width: 100%;
 }
 
@@ -423,9 +410,9 @@ export default {
 #index #in-memory #last-starfighters .big-wordz,
 #index #in-memory #lost-starfighters .big-wordz {
   display: block;
-  font-size: 72px;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 8.333%;
+  margin-bottom: 10%;
   width: 100%;
 }
 
@@ -435,16 +422,16 @@ export default {
 
 #index #in-memory #last-starfighters .human-being,
 #index #in-memory #lost-starfighters .human-being {
-  margin-bottom: 5%;
-  width: 33%;
+  margin-bottom: 6.25%;
+  width: 50%;
 }
 
 #index #in-memory #last-starfighters .human-being .name,
 #index #in-memory #lost-starfighters .human-being .name {
   display: block;
-  font-size: 40px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 #index #in-memory #lost-starfighters .human-being .name {
@@ -454,12 +441,158 @@ export default {
 #index #in-memory #last-starfighters .human-being .occupasche,
 #index #in-memory #lost-starfighters .human-being .occupasche {
   display: block;
-  font-size: 21px;
+  font-size: 12px;
   opacity: 0.666;
 }
 
 #index #in-memory #lost-starfighters .human-being .occupasche {
   color: var(--white);
   opacity: 0.333;
+}
+
+@media only screen and (min-width: 768px) {
+  #index #in-memory #hero {
+    padding: 8.333%;
+  }
+
+  #index #in-memory #hero:before {
+    background-size: 57px 532px;
+    height: 38px;
+    left: 68px;
+    margin: 0 0 -8.333% 8.333%;
+    width: 57px;
+  }
+
+  @keyframes didnt {
+    to {
+      background-position: 0px -494px;
+    }
+  }
+
+  #index #in-memory #hero #logo {
+    height: 29px;
+    margin-bottom: 8.333%;
+    width: 200px;
+  }
+
+  #index #in-memory #hero #back-to-the-corners {
+    margin-top: 8.333%;
+    right: 8.333%;
+  }
+
+  #index #in-memory #hero #hero-content p {
+    font-size: 18px;
+  }
+
+  #index #in-memory #reel {
+    padding: 0 8.333%;
+  }
+
+  #index #in-memory #last-starfighters,
+  #index #in-memory #lost-starfighters {
+    padding: 8.333% 8.333% 4.166%;
+  }
+
+  #index #in-memory #last-starfighters .big-wordz,
+  #index #in-memory #lost-starfighters .big-wordz {
+    font-size: 40px;
+    margin-bottom: 8.333%;
+  }
+
+  #index #in-memory #last-starfighters .human-being .name,
+  #index #in-memory #lost-starfighters .human-being .name {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  #index #in-memory #last-starfighters .human-being .occupasche,
+  #index #in-memory #lost-starfighters .human-being .occupasche {
+    font-size: 16px;
+    opacity: 0.666;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #index #in-memory #hero:before {
+    background-size: 85px 798px;
+    height: 57px;
+    left: 103px;
+    margin: 0 0 -8.333% 8.333%;
+    width: 85px;
+  }
+
+  @keyframes didnt {
+    to {
+      background-position: 0px -741px;
+    }
+  }
+
+  #index #in-memory #hero #logo {
+    height: 43px;
+    width: 300px;
+  }
+
+  #index #in-memory #hero #hero-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #index #in-memory #hero #hero-content p {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.6em;
+    width: 50%;
+  }
+
+  #index #in-memory #hero #hero-content #hero-img-wrap {
+    display: block;
+    width: 40%;
+  }
+
+  #index #in-memory #hero #hero-content #hero-img-wrap img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  #index #in-memory #reel {
+    padding: 8.333% 16.666%;
+  }
+
+  #index #in-memory #last-starfighters .big-wordz,
+  #index #in-memory #lost-starfighters .big-wordz {
+    font-size: 60px;
+    margin-bottom: 8.333%;
+  }
+
+  #index #in-memory #last-starfighters .human-being,
+  #index #in-memory #lost-starfighters .human-being {
+    margin-bottom: 5%;
+    width: 33%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #index #in-memory #hero #hero-content p {
+    font-size: 32px;
+  }
+
+  #index #in-memory #last-starfighters .big-wordz,
+  #index #in-memory #lost-starfighters .big-wordz {
+    font-size: 72px;
+    margin-bottom: 8.333%;
+  }
+
+  #index #in-memory #last-starfighters .human-being .name,
+  #index #in-memory #lost-starfighters .human-being .name {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  #index #in-memory #last-starfighters .human-being .occupasche,
+  #index #in-memory #lost-starfighters .human-being .occupasche {
+    font-size: 21px;
+    opacity: 0.666;
+  }
 }
 </style>
