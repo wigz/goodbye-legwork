@@ -40,7 +40,7 @@ export default {
           "perspective and approach. We loved when people told us that the",
           "work we did felt hand crafted. And this is where we thrived, on a",
           "constant stream of new, creative challenges. We were a team driven",
-          "by learning new things and saying 'get fucked!' to the status quo."
+          "by learning new things. Friends don't let friends copy design trends!"
         ],
         [
           "We always pushed concepts, even if it meant down to the wire",
@@ -101,14 +101,14 @@ export default {
 
 #wordz #inner-wordz .line {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 1.25vh;
   overflow: hidden;
 }
 
 #wordz #inner-wordz .line span {
   color: var(--frumpy-noodle);
   display: block;
-  font-size: 32px;
+  font-size: 1.667vh;
   font-weight: bold;
   line-height: 1.2em;
   transform: translate3d(0%, 100%, 0);
@@ -118,5 +118,15 @@ export default {
 
 #wordz.shown #inner-wordz .line span {
   transform: translate3d(0%, 0%, 0);
+}
+
+@media (orientation: landscape) {
+  #wordz #inner-wordz .line {
+    margin-bottom: 1.25vw;
+  }
+
+  #wordz #inner-wordz .line span {
+    font-size: 1.667vw;
+  }
 }
 </style>

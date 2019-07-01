@@ -54,7 +54,7 @@ export default {
         'end': 45
       },
       'split': {
-        'rest': 32,
+        'rest': 30,
         'end': 54
       },
       'cover': {

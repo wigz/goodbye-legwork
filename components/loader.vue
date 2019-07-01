@@ -44,19 +44,23 @@ export default {
   // methods
   methods: {
     go() {
+      let set = window.outerWidth <= 1024 ? '-small' : ''
+
+      console.log(set)
+
       this._sprite.classList.add('go')
 
       setTimeout(() => {
         for(let i = 1; i <= this.manifest.skull.frames; i++) {
-          this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}.jpg`, i)
+          this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}${set}.jpg`, i)
         }
 
         for(let i = 1; i <= this.manifest.split.frames; i++) {
-          this.cache(`${this.manifest.split.path}${('0' + i).substr(-2)}.jpg`, i)
+          this.cache(`${this.manifest.split.path}${('0' + i).substr(-2)}${set}.jpg`, i)
         }
 
         for(let i = 1; i <= this.manifest.cover.frames; i++) {
-          this.cache(`${this.manifest.cover.path}${('0' + i).substr(-2)}.jpg`, i)
+          this.cache(`${this.manifest.cover.path}${('0' + i).substr(-2)}${set}.jpg`, i)
         }
       }, 1600)
     },
@@ -83,9 +87,15 @@ export default {
           cnv = document.createElement('canvas'),
           ctx = cnv.getContext('2d')
 
-      cnv.width = 1600
-      cnv.height = 1600
-      ctx.drawImage(img, 0, 0, 1600, 1600)
+      if(window.outerWidth <= 1024) {
+        cnv.width = 640
+        cnv.height = 640
+        ctx.drawImage(img, 0, 0, 640, 640)
+      } else {
+        cnv.width = 1600
+        cnv.height = 1600
+        ctx.drawImage(img, 0, 0, 1600, 1600)
+      }
 
       return cnv
     },
@@ -96,7 +106,13 @@ export default {
       this.loaded += 1;
       if(this.loaded === this.manifest.skull.frames + this.manifest.split.frames + this.manifest.cover.frames) {
         this.$store.commit('loaded')
-        setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 666);
+
+        // throw back to when we used
+        // to play hacky sack ...
+        setTimeout(function() {
+          window.dispatchEvent(new Event('resize'))
+          setTimeout(function() {document.getElementById('what-the-fuck').classList.add('do-i-do')}, 666)
+        }, 666);
       }
     }
   }

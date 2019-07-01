@@ -25,6 +25,7 @@
           <path d="M521.2,71.8h8.4c0.3,0,0.6-0.3,0.6-0.6V14.8c0-0.3-0.3-0.6-0.6-0.6h-8.4c-0.3,0-0.6-0.3-0.6-0.6V2.1c0-0.3,0.3-0.6,0.6-0.6h33.2c0.3,0,0.6,0.3,0.6,0.6v11.3c0,0.3-0.3,0.6-0.6,0.6h-9.3c-0.3,0-0.6,0.3-0.6,0.6v26.1c0,0.5,0.6,0.8,1,0.4L571.7,15c0.4-0.4,0.1-1-0.4-1h-7.6c-0.3,0-0.6-0.3-0.6-0.6V2.1c0-0.3,0.3-0.6,0.6-0.6h35.7c0.3,0,0.6,0.3,0.6,0.6v11.6c0,0.3-0.3,0.6-0.6,0.6h-8.2c-0.2,0-0.3,0.1-0.4,0.2l-22.9,22.3c-0.2,0.2-0.2,0.5-0.1,0.7l21,34c0.1,0.2,0.3,0.3,0.5,0.3h10.2c0.3,0,0.6,0.3,0.6,0.6v11.6c0,0.3-0.3,0.6-0.6,0.6h-19.2c-0.2,0-0.4-0.1-0.5-0.3L557,47.3c-0.2-0.3-0.6-0.4-0.9-0.1l-11.4,11.1c-0.1,0.1-0.2,0.3-0.2,0.4v12.5c0,0.3,0.3,0.6,0.6,0.6h9.3c0.3,0,0.6,0.3,0.6,0.6v11.6c0,0.3-0.3,0.6-0.6,0.6h-33.2c-0.3,0-0.6-0.3-0.6-0.6V72.3C520.6,72,520.9,71.8,521.2,71.8z"/>
           <path d="M184,42.3v11.5c0,0.3,0.3,0.6,0.6,0.6h19.8c0.3,0,0.6,0.3,0.6,0.6v12.6c0,0.2-0.1,0.4-0.3,0.5c-5.7,3.3-11.4,5.1-20,5.1c-5.5,0-10.8-1.8-15.3-5c-1.3-1-2.6-2.2-3.8-3.4c-5.2-5.3-8.4-13-8.4-21.8c0-17.7,12.3-29.6,28.3-29.8c7.7,0,14.8,2.9,19.4,7.8c0.1,0.1,0.2,0.3,0.2,0.4v7c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V16c0-0.6-0.2-1.1-0.6-1.6c-6.6-7.7-15.6-12.6-26.6-14c-0.3,0-0.6-0.1-0.9-0.1c-0.1,0-0.2,0-0.3,0c-1.4-0.2-2.9-0.3-4.4-0.3c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.2,0c-25.4,0-43.2,18.7-43.2,43c0,0,0,0.1,0,0.1c0,0,0,0.1,0,0.1c0,26.6,19.5,42.7,40.1,42.7c8.9,0,16.1-2.8,21.8-7c0.4-0.3,0.9,0,0.9,0.5v5.4c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V42.3c0-0.3-0.3-0.6-0.6-0.6h-33.7C184.3,41.7,184,41.9,184,42.3z"/>
         </svg>
+        <div id="back-to-the-corners" @click="onBackToCornersClick">BACK</div>
         <div id="hero-content">
           <p>These were the ideals that we strived to uphold at Legwork Studio. But, in the end, it was the talented people and the unmatched work they did that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
           <div id="hero-img-wrap">
@@ -243,8 +244,13 @@ export default {
     vueVimeoPlayer
   },
 
-  // lifecycle
-  mounted() {
+  // methods
+  methods: {
+    onBackToCornersClick(e) {
+      let card = document.getElementById('card-01')
+      card.dispatchEvent(new Event('mousedown'))
+      card.dispatchEvent(new Event('mouseup'))
+    }
   }
 }
 </script>
@@ -252,19 +258,33 @@ export default {
 <style>
 #index {
   height: 100%;
-  transform: translate3d(0%, 0%, 0);
-  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000);
   width: 100%;
-}
-
-#index.message-3 {
-  transform: translate3d(0%, -100%, 0);
 }
 
 #index #the-four-corners {
   height: 100%;
   position: relative;
   width: 100%;
+}
+
+#index #the-four-corners:after {
+  background-color: rgba(0, 0, 0, 0.92);
+  bottom: 0px;
+  content: "";
+  display: block;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: opacity 666ms linear, visibility 0ms linear 666ms;
+  visibility: hidden;
+}
+
+#index.message-3 #the-four-corners:after {
+  opacity: 1;
+  transition: opacity 666ms linear, visibility 0ms linear 0ms;
+  visibility: visible;
 }
 
 #index #the-four-corners #head-wrap,
@@ -279,7 +299,7 @@ export default {
 }
 
 #index #the-four-corners #load-wrap {
-  transition: opacity 666ms linear, visibility 0ms linear 666ms;
+  transition: opacity 1s linear, visibility 0ms linear 1s;
 }
 
 #index #the-four-corners #load-wrap.loaded {
@@ -293,7 +313,14 @@ export default {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
+  transform: translate3d(0%, 0%, 0);
+  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000);
+  -webkit-overflow-scrolling: touch;
   width: 100%;
+}
+
+#index.message-3 #in-memory {
+  transform: translate3d(0%, -100%, 0);
 }
 
 #index #in-memory #hero {
@@ -330,6 +357,27 @@ export default {
   height: 43px;
   margin-bottom: 8.333%;
   width: 300px;
+}
+
+#index #in-memory #hero #back-to-the-corners {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1em;
+  margin-top: 8.333%;
+  position: absolute;
+  right: 8.333%;
+  top: 0px;
+}
+
+#index #in-memory #hero #back-to-the-corners:before {
+  border-bottom: 10px solid var(--black);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  content: "";
+  left: -27px;
+  position: absolute;
+  top: 3px;
 }
 
 #index #in-memory #hero #hero-content {

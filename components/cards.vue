@@ -1,16 +1,19 @@
 <template>
   <div id="cards" :class="{unlocked: unlocked}">
-    <div class="corner" id="card-01" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/01.png"/>
-    </div>
-    <div class="corner" id="card-02" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/02.png"/>
-    </div>
-    <div class="corner" id="card-03" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/03.png"/>
-    </div>
-    <div class="corner" id="card-04" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
-      <img src="/cards/04.png"/>
+    <span id="what-the-fuck">Pick it up and drop it.</span>
+    <div id="cards-inner">
+      <div class="corner" id="card-01" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
+        <img src="/cards/01.png"/>
+      </div>
+      <div class="corner" id="card-02" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
+        <img src="/cards/02.png"/>
+      </div>
+      <div class="corner" id="card-03" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
+        <img src="/cards/03.png"/>
+      </div>
+      <div class="corner" id="card-04" @mousedown.stop.prevent="onCornerDown" @touchstart.stop.prevent="onCornerDown">
+        <img src="/cards/04.png"/>
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +25,7 @@ export default {
   // data
   data() {
     return {
+      initial: true,
       cornered: false,
       unlocked: false
     }
@@ -30,6 +34,7 @@ export default {
   // lifecycle
   mounted: function() {
     this._corners = document.getElementsByClassName('corner')
+    this._what_the_fuck = document.getElementById('what-the-fuck')
     this._interaction = {
       initial_x: 0,
       initial_y: 0
@@ -58,38 +63,39 @@ export default {
     },
 
     calcTranslates() {
-      let base_x = (Math.round(window.innerWidth / 2) - 114),
-          base_y = (Math.round(window.innerHeight / 2) - 161)
+      let rect = this._corners[0].getBoundingClientRect(),
+          base_x = (Math.round(window.innerWidth / 2) - Math.round(rect.width / 2)),
+          base_y = (Math.round(window.innerHeight / 2) - Math.round(rect.height / 2))
 
       return [
         {
           'current': {
-            'x': (base_x - 240),
-            'y': base_y
+            'x': (base_x - rect.width) - 40,
+            'y': base_y - 20
           },
           'resting': {
-            'x': (base_x - 240),
-            'y': base_y
+            'x': (base_x - rect.width) - 40,
+            'y': base_y - 20
           }
         },
         {
           'current': {
-            'x': -base_x,
-            'y': base_y
+            'x': -base_x + 20,
+            'y': base_y - 20
           },
           'resting': {
-            'x': -base_x,
-            'y': base_y
+            'x': -base_x + 20,
+            'y': base_y - 20
           }
         },
         {
           'current': {
-            'x': (base_x + 240),
-            'y': -base_y
+            'x': (base_x + rect.width),
+            'y': -base_y + 20
           },
           'resting': {
-            'x': (base_x + 240),
-            'y': -base_y
+            'x': (base_x + rect.width),
+            'y': -base_y + 20
           }
         },
         {
@@ -134,10 +140,7 @@ export default {
     },
 
     turnThePage(index) {
-      if(index === 3) {
-        this.$store.commit('sequence', '')
-        this.$store.commit('to', '')
-      } else {
+      if(index !== 3) {
         this.$store.commit('sequence', this._seq[index])
         this.$store.commit('to', 'rest')
       }
@@ -150,9 +153,8 @@ export default {
         corner.classList.remove('dropped')
       }
 
-      // TODO: touch
-      this._interaction.initial_x = e.pageX
-      this._interaction.initial_y = e.pageY
+      this._interaction.initial_x = e.type === 'mousedown' ? e.pageX : e.targetTouches[0].pageX
+      this._interaction.initial_y = e.type === 'mousedown' ? e.pageY : e.targetTouches[0].pageY
 
       let t = e.currentTarget
       t.classList.add('down')
@@ -161,6 +163,7 @@ export default {
       if(this.cornered === false) {
         this.cornered = true;
         window.removeEventListener('resize', this.onResize)
+        this._what_the_fuck.classList.replace('do-i-do', 'yeeeaaah')
         this.disperseCorners()
       } else {
         this.$store.commit('sequence', this._seq[this._last_index])
@@ -171,12 +174,14 @@ export default {
 
       document.body.addEventListener('mousemove', this.onCornerMove, true)
       document.body.addEventListener('mouseup', this.onCornerUp, true)
+      document.body.addEventListener('touchmove', this.onCornerMove, true)
+      document.body.addEventListener('touchend', this.onCornerUp, true)
     },
 
     onCornerMove(e) {
       let index = this.getIndex(this._active_corner),
-          delta_x = e.pageX - this._interaction.initial_x,
-          delta_y = e.pageY - this._interaction.initial_y
+          delta_x = e.type === 'mousemove' ? e.pageX - this._interaction.initial_x : e.targetTouches[0].pageX - this._interaction.initial_x,
+          delta_y = e.type === 'mousemove' ? e.pageY - this._interaction.initial_y : e.targetTouches[0].pageY - this._interaction.initial_y
 
       this._translates[index].current.x = this._translates[index].resting.x + delta_x
       this._translates[index].current.y = this._translates[index].resting.y + delta_y
@@ -203,6 +208,8 @@ export default {
 
       document.body.removeEventListener('mousemove', this.onCornerMove, true)
       document.body.removeEventListener('mouseup', this.onCornerUp, true)
+      document.body.removeEventListener('touchmove', this.onCornerMove, true)
+      document.body.removeEventListener('touchend', this.onCornerUp, true)
 
       setTimeout(this.disperseCorners, 666)
     }
@@ -216,67 +223,109 @@ export default {
   width: 100%;
 }
 
-#cards.unlocked .corner#card-04 {
+#cards.unlocked #cards-inner .corner#card-04 {
   opacity: 1;
   visibility: visible;
 }
 
-#cards.unlocked .corner#card-04.down {
+#cards.unlocked #cards-inner .corner#card-04.down {
   opacity: 0.666;
 }
 
-#cards.unlocked .corner#card-04.dropped {
+#cards.unlocked #cards-inner .corner#card-04.dropped {
   opacity: 0;
 }
 
-#cards .corner {
-  border-radius: 7px;
-  cursor: pointer;
-  height: 322px;
-  padding: 20px;
+#cards #what-the-fuck {
+  color: var(--frumpy-noodle);
+  font-size: 1.667vh;
+  font-weight: bold;
+  left: 50%;
+  opacity: 0;
   position: absolute;
-  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000), opacity 333ms linear;
-  width: 228px;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  transition: opacity 333ms linear, visibility 0ms linear 333ms;
 }
 
-#cards .corner img {
+#cards #what-the-fuck.do-i-do {
+  opacity: 0.666;
+}
+
+#cards #what-the-fuck.yeeeaaah {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#cards #cards-inner {
   height: 100%;
+  position: relative;
   width: 100%;
 }
 
-#cards .corner.down {
+#cards #cards-inner .corner {
+  cursor: pointer;
+  height: 0;
+  padding-bottom: 30%;
+  position: absolute;
+  transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000), opacity 333ms linear;
+  width: 20%;
+}
+
+#cards #cards-inner .corner img {
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+#cards #cards-inner .corner.down {
   opacity: 0.666;
   transition: opacity 333ms linear;
 }
 
-#cards .corner.dropped {
+#cards #cards-inner .corner.dropped {
   opacity: 0;
+  pointer-events: none;
   transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000), opacity 333ms linear;
 }
 
-#cards .corner#card-01 {
-  left: 0px;
-  top: 0px;
+#cards #cards-inner .corner#card-01 {
+  left: 20px;
+  top: 20px;
 }
 
-#cards .corner#card-02 {
-  right: 0px;
-  top: 0px;
+#cards #cards-inner .corner#card-02 {
+  right: 20px;
+  top: 20px;
 }
 
-#cards .corner#card-03 {
-  bottom: 0px;
-  left: 0px;
+#cards #cards-inner .corner#card-03 {
+  bottom: 20px;
+  left: 20px;
 }
 
-#cards .corner#card-04 {
-  bottom: 0px;
+#cards #cards-inner .corner#card-04 {
+  bottom: 20px;
   opacity: 0;
-  right: 0px;
+  right: 20px;
   visibility: hidden;
 }
 
-#index.message-3 #cards .corner {
+#index.message-3 #cards #cards-inner .corner {
   transition: none !important;
+}
+
+@media (orientation: landscape) {
+  #cards #what-the-fuck {
+    font-size: 1.667vw;
+  }
+
+  #cards #cards-inner .corner {
+    padding-bottom: 17.25%;
+    width: 11.5%;
+  }
 }
 </style>
