@@ -27,7 +27,7 @@
         </svg>
         <div id="back-to-the-corners" @click="onBackToCornersClick">BACK</div>
         <div id="hero-content">
-          <p>These were the ideals that we strived to uphold at Legwork Studio. But, in the end, it was the talented people and the unmatched work they did that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been fucking awesome&ndash;goodbye.</p>
+          <p>We were Legwork Studio and these were the ideals that we strived to uphold. In the end, it was the talented people and the unmatched work they did that mattered the most. Legwork lives on in the things we created, our memories, shared experiences and, so we don’t forget, here for good measure. It has truly been an amazing decade&ndash;goodbye.</p>
           <div id="hero-img-wrap">
             <img src="legstudio.png"/>
           </div>
@@ -35,7 +35,7 @@
       </div>
       <div id="reel">
         <no-ssr>
-          <vimeo-player data-vimeo-responsive="1" ref="player" video-id="280759140"/>
+          <vimeo-player data-vimeo-responsive="1" ref="player" video-id="328536852"/>
         </no-ssr>
       </div>
       <div id="last-starfighters">

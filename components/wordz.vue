@@ -30,17 +30,17 @@ export default {
       wordz: [
         [
           "We saw creativity as our guiding light. When times were the best,",
-          "we didn’t haggle over budgets, worry about finding clients or struggle",
-          "to hire the best people. We led with creativity and the rest followed.",
-          "We passed on work that didn’t give us this opportunity. Maybe it",
-          "contributed to our downfall, but it was totally worth it.",
+          "we led with being creative and the rest followed. Budgets aligned,",
+          "work flowed through the studio and we hired some really great people.",
+          "It was always our goal to find work that supported this vision and to",
+          "trust in the talent of the people on our team to get the job done."
         ],
         [
           "We didn’t recycle ideas. We tried to give each project a unique",
           "perspective and approach. We loved when people told us that the",
           "work we did felt hand crafted. And this is where we thrived, on a",
           "constant stream of new, creative challenges. We were a team driven",
-          "by learning new things. Friends don't let friends copy design trends!"
+          "by staying positive, supporting each other and learning new things."
         ],
         [
           "We always pushed concepts, even if it meant down to the wire",
