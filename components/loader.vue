@@ -1,7 +1,8 @@
 <template>
   <div id="loader">
+    <span id="progress">{{ progress }}</span>
     <div id="legwork-is-dead">
-      <img id="dead-sprite" src="dead.jpg"/>
+      <img id="dead-sprite" src="dead.png"/>
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@ export default {
   data() {
     return {
       loaded: 0,
+      progress: '0%',
       manifest: {
         skull: {
           path: '/sequences/skull/',
@@ -46,23 +48,19 @@ export default {
     go() {
       let set = window.outerWidth <= 1024 ? '-small' : ''
 
-      console.log(set)
-
       this._sprite.classList.add('go')
 
-      setTimeout(() => {
-        for(let i = 1; i <= this.manifest.skull.frames; i++) {
-          this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}${set}.jpg`, i)
-        }
+      for(let i = 1; i <= this.manifest.skull.frames; i++) {
+        this.cache(`${this.manifest.skull.path}${('0' + i).substr(-2)}${set}.jpg`, i)
+      }
 
-        for(let i = 1; i <= this.manifest.split.frames; i++) {
-          this.cache(`${this.manifest.split.path}${('0' + i).substr(-2)}${set}.jpg`, i)
-        }
+      for(let i = 1; i <= this.manifest.split.frames; i++) {
+        this.cache(`${this.manifest.split.path}${('0' + i).substr(-2)}${set}.jpg`, i)
+      }
 
-        for(let i = 1; i <= this.manifest.cover.frames; i++) {
-          this.cache(`${this.manifest.cover.path}${('0' + i).substr(-2)}${set}.jpg`, i)
-        }
-      }, 1600)
+      for(let i = 1; i <= this.manifest.cover.frames; i++) {
+        this.cache(`${this.manifest.cover.path}${('0' + i).substr(-2)}${set}.jpg`, i)
+      }
     },
 
     cache(path, index) {
@@ -103,16 +101,26 @@ export default {
     addCanvasToStore(seq, cnv, index) {
       this.$store.commit(`${seq}/add`, {index, cnv})
 
+      let total = this.manifest.skull.frames + this.manifest.split.frames + this.manifest.cover.frames
+
       this.loaded += 1;
-      if(this.loaded === this.manifest.skull.frames + this.manifest.split.frames + this.manifest.cover.frames) {
-        this.$store.commit('loaded')
+      this.progress = `${Math.round((this.loaded / total) * 100)}%`
+      this._sprite.style.transform = `translate3d(0px, -${59 * Math.round((this.loaded / total) * 19)}px, 0)`
+
+      if(this.loaded === total) {
+        this.progress = '100%'
+        this._sprite.style.transform = `translate3d(0px, -1121px, 0)`
+
+        setTimeout(() => {
+          this.$store.commit('loaded')
+        }, 100)
 
         // throw back to when we used
         // to play hacky sack ...
         setTimeout(function() {
           window.dispatchEvent(new Event('resize'))
           setTimeout(function() {document.getElementById('what-the-fuck').classList.add('do-i-do')}, 666)
-        }, 666);
+        }, 766);
       }
     }
   }
@@ -125,6 +133,17 @@ export default {
   height: 100%;
   position: relative;
   width: 100%;
+}
+
+#loader #progress {
+  color: var(--grandpas-basement);
+  display: inline-block;
+  font-size: 88px;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #loader #legwork-is-dead {
@@ -140,15 +159,5 @@ export default {
 #loader #legwork-is-dead #dead-sprite {
   height: 1180px;
   width: 283px;
-}
-
-#loader #legwork-is-dead #dead-sprite.go {
-  animation: dead 1.6s steps(19) forwards;
-}
-
-@keyframes dead {
-  to {
-    transform: translate3d(0px, -1121px, 0);
-  }
 }
 </style>

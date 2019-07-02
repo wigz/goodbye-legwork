@@ -16,6 +16,9 @@
       <div class="line" id="line-05">
         <span>{{ lines[4] }}</span>
       </div>
+      <div class="line" id="line-06">
+        <span>{{ lines[5] }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -29,25 +32,28 @@ export default {
     return {
       wordz: [
         [
-          "We saw creativity as our guiding light. When times were the best,",
-          "we led with being creative and the rest followed. Budgets aligned,",
-          "work flowed through the studio and we hired some really great people.",
-          "It was always our goal to find work that supported this vision and to",
-          "trust in the talent of the people on our team to get the job done."
+          "We saw creativity as our guiding light. When times were",
+          "the best, we led with being creative and the rest followed.",
+          "Budgets aligned, work flowed through the studio and we",
+          "hired some really great people. It was always our goal to",
+          "find work that supported this vision and to trust in the",
+          "talent of people at every level to get the job done."
         ],
         [
-          "We didn’t recycle ideas. We tried to give each project a unique",
-          "perspective and approach. We loved when people told us that the",
-          "work we did felt hand crafted. And this is where we thrived, on a",
-          "constant stream of new, creative challenges. We were a team driven",
-          "by staying positive, supporting each other and learning new things."
+          "We didn’t recycle ideas. We tried to give each project a",
+          "unique perspective and approach. We loved when people",
+          "told us that the work we did felt hand crafted. And this is",
+          "where we thrived, on a constant stream of new, creative",
+          "challenges. We were a team driven by staying positive,",
+          "supporting each other and learning new things."
         ],
         [
-          "We always pushed concepts, even if it meant down to the wire",
-          "deliveries. We were unabashedly ‘us’ and tried to inject humor into",
-          "everything. For more than a decade, we showed up everyday with the",
-          "right attitude, put our heads down and got to work. \"A little candle",
-          "burns out just like a flaming torch, we chose our own way to burn.\""
+          "We always pushed concepts, even if it meant down to the",
+          "wire deliveries. We were unabashedly ‘us’ and tried to",
+          "inject humor into everything. For more than a decade, we",
+          "showed up everyday with the right attitude, put our heads",
+          "down and got to work. \"A little candle burns out just like",
+          "a flaming torch, we chose our own way to burn.\""
         ]
       ]
     }
@@ -62,7 +68,7 @@ export default {
       return this.$store.state.message
     },
     lines() {
-      return this.message === -1 || this.message === 3 ? ['', '', '', '', ''] : this.wordz[this.message]
+      return this.message === -1 || this.message === 3 ? ['', '', '', '', '', ''] : this.wordz[this.message]
     }
   }
 }
@@ -100,7 +106,7 @@ export default {
 }
 
 #wordz #inner-wordz .line {
-  display: inline-block;
+  display: block;
   margin-bottom: 1.25vh;
   overflow: hidden;
 }
@@ -108,8 +114,7 @@ export default {
 #wordz #inner-wordz .line span {
   color: var(--frumpy-noodle);
   display: block;
-  font-size: 1.667vh;
-  font-weight: bold;
+  font-size: 13px;
   line-height: 1.2em;
   transform: translate3d(0%, 100%, 0);
   transition: transform 666ms cubic-bezier(0.666, 0.000, 0.333, 1.000);
@@ -120,13 +125,20 @@ export default {
   transform: translate3d(0%, 0%, 0);
 }
 
-@media (orientation: landscape) {
+@media only screen and (min-width: 768px) {
+  #wordz #inner-wordz .line span {
+    font-size: 2vh;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
   #wordz #inner-wordz .line {
     margin-bottom: 1.25vw;
   }
 
   #wordz #inner-wordz .line span {
-    font-size: 1.667vw;
+    font-size: 2vw;
   }
 }
 </style>

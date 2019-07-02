@@ -35,7 +35,7 @@
       </div>
       <div id="reel">
         <no-ssr>
-          <vimeo-player data-vimeo-responsive="1" ref="player" video-id="328536852"/>
+          <vimeo-player data-vimeo-responsive="1" ref="player" video-id="328536852" :options="{autohide: true, byline: false, portrait: false, title: false}"/>
         </no-ssr>
       </div>
       <div id="last-starfighters">
