@@ -105,11 +105,11 @@ export default {
 
       this.loaded += 1;
       this.progress = `${Math.round((this.loaded / total) * 100)}%`
-      this._sprite.style.transform = `translate3d(0px, -${59 * Math.round((this.loaded / total) * 19)}px, 0)`
+      //this._sprite.style.transform = `translate3d(0px, -${59 * Math.round((this.loaded / total) * 19)}px, 0)`
 
       if(this.loaded === total) {
         this.progress = '100%'
-        this._sprite.style.transform = `translate3d(0px, -1121px, 0)`
+        //this._sprite.style.transform = `translate3d(0px, -1121px, 0)`
 
         setTimeout(() => {
           this.$store.commit('loaded')
@@ -159,5 +159,14 @@ export default {
 #loader #legwork-is-dead #dead-sprite {
   height: 1180px;
   width: 283px;
+}
+
+#loader #legwork-is-dead #dead-sprite.go {
+  animation: dead 1.6s steps(19) forwards;
+}
+@keyframes dead {
+  to {
+    transform: translate3d(0px, -1121px, 0);
+  }
 }
 </style>
